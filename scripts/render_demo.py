@@ -1,4 +1,4 @@
-"""Render a model-driven pick video (two views, subtitles, MP4).
+﻿"""Render a model-driven pick video (two views, subtitles, MP4).
 
 Requires ``kite-bench`` on the path (policy adapter, MuJoCo scene, demo-manifold IK):
 
@@ -41,6 +41,11 @@ def main() -> int:
     parser.add_argument("--industrial", action="store_true", help="use the industrial set")
     args = parser.parse_args()
 
+    if not args.demo_source.exists():
+        raise SystemExit(
+            f"demo source {args.demo_source} not found; point --demo-source at the "
+            "kite-bench episodes directory (e.g. ../kite-bench/out/episodes_v4)"
+        )
     policy = XVLAAdapter(args.model, steps=5, seed=0, head=args.head)
     demo_ik = DemoIK(args.demo_source)
 
@@ -121,3 +126,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
