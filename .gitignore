@@ -1,0 +1,21 @@
+# Unity 生成物
+unity/*/Library/
+unity/*/Temp/
+unity/*/Logs/
+unity/*/obj/
+unity/*/Build/
+unity/*/UserSettings/
+unity/*/MemoryCaptures/
+unity/*/Recordings/
+
+# 视频与大文件
+out/
+*.mp4
+*.gif
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
